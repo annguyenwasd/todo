@@ -17,16 +17,34 @@ A keyboard-driven kanban board in your terminal.
 
 ## Install
 
+### Global installation (recommended)
+
+Install it globally from npm:
+
+```sh
+npm install -g @annguyenwasd/todo
+```
+
+Then run it from anywhere in your terminal:
+
+```sh
+todo
+```
+
+### Local development
+
+If you want to run it from source:
+
 ```sh
 pnpm install
 pnpm dev
 ```
 
-Or build and run as a CLI:
+Or build and install it locally on your machine:
 
 ```sh
-pnpm build
-node dist/cli.js
+npm run install:local
+todo
 ```
 
 ## Key bindings
@@ -79,7 +97,7 @@ node dist/cli.js
 Cards are stored in `todos.json` in the current directory. Override the path:
 
 ```sh
-TODO=/path/to/my-project pnpm dev
+TODO=/path/to/my-project todo
 # or point to a directory
-TODO=~/notes pnpm dev
+TODO=~/notes todo
 ```
