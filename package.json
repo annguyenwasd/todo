@@ -1,5 +1,5 @@
 {
-  "name": "kanban-cli",
+  "name": "@annguyenwasd/todo",
   "version": "1.0.0",
   "type": "module",
   "bin": {
@@ -8,6 +8,9 @@
   "scripts": {
     "dev": "tsc && node dist/cli.js",
     "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "publish:public": "npm publish --access public",
+    "install:local": "npm run build && npm install -g .",
     "start": "node dist/cli.js"
   },
   "dependencies": {
