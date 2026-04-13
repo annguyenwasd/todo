@@ -1,6 +1,16 @@
 {
   "name": "@annguyenvanchuc/todo",
   "version": "1.0.0",
+  "homepage": "https://github.com/annguyenvanchuc/todo",
+  "keywords": [
+    "todo",
+    "cli",
+    "task-manager",
+    "kanban",
+    "ink",
+    "react",
+    "typescript"
+  ],
   "type": "module",
   "bin": {
     "todo": "./dist/cli.js"
