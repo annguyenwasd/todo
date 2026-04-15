@@ -22,7 +22,7 @@ A keyboard-driven kanban board in your terminal.
 Install it globally from npm:
 
 ```sh
-npm install -g @annguyenwasd/todo
+npm install -g @annguyenvanchuc/todo
 ```
 
 Then run it from anywhere in your terminal:
