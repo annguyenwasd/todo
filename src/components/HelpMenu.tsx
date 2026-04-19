@@ -28,6 +28,7 @@ const SECTIONS: Array<{ title: string; bindings: Array<[string, string]> }> = [
       ['x', 'Delete selected card'],
       ['< / >', 'Move card to adjacent left / right column'],
       ['m', 'Open move picker (choose any column)'],
+      ['c', 'Copy card text to clipboard'],
       ['i', 'Quick-move card → In Progress'],
       ['d', 'Quick-move card → Done'],
     ],

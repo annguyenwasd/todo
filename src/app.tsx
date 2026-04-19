@@ -6,6 +6,7 @@ import { MoveMenu } from './components/MoveMenu.js';
 import { StatusBar } from './components/StatusBar.js';
 import { TextInput } from './components/TextInput.js';
 import { useBoard } from './hooks/useBoard.js';
+import { copyToClipboard } from './clipboard.js';
 
 export function App() {
   const { exit } = useApp();
@@ -19,6 +20,8 @@ export function App() {
     findColIndex, moveCardToNamedColumn, moveCardToCol,
     minimizedCols, maximizedCol, toggleMinimize, toggleMaximize,
   } = useBoard();
+
+  const [copiedFlash, setCopiedFlash] = useState(false);
 
   // target column index for quick-add shortcuts (t / b / I)
   const [addTarget, setAddTarget] = useState<number | undefined>(undefined);
@@ -93,6 +96,15 @@ export function App() {
     }
     if (input === 'm') {
       if (getCurrentCard()) setMode('move-picker');
+      return;
+    }
+    if (input === 'c') {
+      const card = getCurrentCard();
+      if (card) {
+        copyToClipboard(card.text);
+        setCopiedFlash(true);
+        setTimeout(() => setCopiedFlash(false), 1500);
+      }
       return;
     }
 
@@ -183,6 +195,12 @@ export function App() {
           )}
           <Text color="red" bold>? </Text>
           <Text dimColor>y / n</Text>
+        </Box>
+      )}
+
+      {copiedFlash && (
+        <Box marginTop={1}>
+          <Text color="green" bold>✓ Copied to clipboard</Text>
         </Box>
       )}
 
