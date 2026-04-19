@@ -22,6 +22,7 @@ export function App() {
   } = useBoard();
 
   const [copiedFlash, setCopiedFlash] = useState(false);
+  const [relativeTime, setRelativeTime] = useState(true);
 
   // target column index for quick-add shortcuts (t / b / I)
   const [addTarget, setAddTarget] = useState<number | undefined>(undefined);
@@ -98,6 +99,7 @@ export function App() {
       if (getCurrentCard()) setMode('move-picker');
       return;
     }
+    if (input === 'T') { setRelativeTime(r => !r); return; }
     if (input === 'c') {
       const card = getCurrentCard();
       if (card) {
@@ -148,7 +150,7 @@ export function App() {
         </Text>
       </Box>
 
-      <BoardView board={board} cursor={cursor} height={boardHeight} minimizedCols={minimizedCols} maximizedCol={maximizedCol} />
+      <BoardView board={board} cursor={cursor} height={boardHeight} minimizedCols={minimizedCols} maximizedCol={maximizedCol} relativeTime={relativeTime} />
 
       {mode === 'add-card' && (
         <TextInput

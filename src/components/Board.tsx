@@ -11,9 +11,10 @@ interface Props {
   height: number;
   minimizedCols: Set<string>;
   maximizedCol: string | null;
+  relativeTime: boolean;
 }
 
-export function BoardView({ board, cursor, height, minimizedCols, maximizedCol }: Props) {
+export function BoardView({ board, cursor, height, minimizedCols, maximizedCol, relativeTime }: Props) {
   const { columns: termWidth } = useWindowSize();
   const colCount = board.columns.length || 1;
 
@@ -46,6 +47,7 @@ export function BoardView({ board, cursor, height, minimizedCols, maximizedCol }
           width={getColWidth(col.id)}
           height={height}
           isMinimized={isMinimized(col.id)}
+          relativeTime={relativeTime}
         />
       ))}
     </Box>

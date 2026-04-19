@@ -12,9 +12,10 @@ interface Props {
   width: number;
   height: number;
   isMinimized?: boolean;
+  relativeTime: boolean;
 }
 
-export function ColumnView({ column, isFocused, selectedRow, width, height, isMinimized }: Props) {
+export function ColumnView({ column, isFocused, selectedRow, width, height, isMinimized, relativeTime }: Props) {
   if (isMinimized) {
     return (
       <Box
@@ -92,6 +93,7 @@ export function ColumnView({ column, isFocused, selectedRow, width, height, isMi
               index={scrollTop + i}
               isSelected={scrollTop + i === selectedRow}
               isFocusedColumn={isFocused}
+              relativeTime={relativeTime}
             />
           ))
         )}

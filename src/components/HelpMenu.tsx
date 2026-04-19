@@ -46,6 +46,7 @@ const SECTIONS: Array<{ title: string; bindings: Array<[string, string]> }> = [
   {
     title: 'Other',
     bindings: [
+      ['T', 'Toggle relative / exact time'],
       ['?', 'Toggle this help menu'],
       ['q', 'Quit'],
     ],
