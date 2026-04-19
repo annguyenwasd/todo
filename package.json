@@ -19,7 +19,7 @@
     "dev": "tsc && node dist/cli.js",
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "postpublish": "VERSION=$(node -p \"require('./package.json').version\") && gh release create \"v$VERSION\" --title \"v$VERSION\" --generate-notes 2>/dev/null || true",
+    "postpublish": "git push --follow-tags && VERSION=$(node -p \"require('./package.json').version\") && gh release create \"v$VERSION\" --title \"v$VERSION\" --generate-notes",
     "publish:public": "npm publish --access public",
     "install:local": "npm run build && npm install -g .",
     "start": "node dist/cli.js"
